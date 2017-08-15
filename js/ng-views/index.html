@@ -1,1 +1,8 @@
-<h2>Check out this stuff!</h2>
+<h2>Latest gram</h2>
+
+<div class="index" ng-repeat="gram in vm.grams | orderBy: '-created_at'">
+  <a ui-sref="instagramShow({id: gram.id})">
+    <p>{{gram.body}}</p>
+    <img ng-src="{{gram.photo_url}}" alt="{{gram.author}}'s image" width="200px">
+  </a>
+</div>

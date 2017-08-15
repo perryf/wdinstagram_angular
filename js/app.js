@@ -10,7 +10,7 @@
     RouterFunction
   ])
   .controller('InstagramIndexController', [
-    'Instragram',
+    'Instagram',
     InstagramIndexControllerFunction
   ])
   .controller('InstagramShowController', [
@@ -34,7 +34,7 @@
   ])
 
   function instagramService ($resource) {
-    return $resource('http://localhost:3000/instagram/:id', {}, {
+    return $resource('http://localhost:3000/entries/:id', {}, {
       update: {
         method: 'PUT'
       }
@@ -87,10 +87,10 @@
         $state.go('instagramShow', {id: gram.id})
       })
     }
-  this.destroy = function () {
-    this.gram.$delete({id: $state.params.id}, (gram) => {
-      $state.go('instagramIndex', {id: gram.id})
-    })
-  }
+    this.destroy = function () {
+      this.gram.$delete({id: $state.params.id}, (gram) => {
+        $state.go('instagramIndex', {id: gram.id})
+      })
+    }
   }
 })();

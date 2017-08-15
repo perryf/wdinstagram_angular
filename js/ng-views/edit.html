@@ -1,0 +1,9 @@
+<h2>Edit</h2>
+
+<form>
+  <input placeholder="Author" data-ng-model="vm.gram.author" />
+  <input placeholder="Photo URL" data-ng-model="vm.gram.photo_url" />
+  <textarea placeholder="Text" data-ng-model="vm.gram.body"></textarea>
+  <button type="button" data-ng-click="vm.update()">Update</button>
+  <button type="button" data-ng-click="vm.destroy()">Destroy</button>
+</form>
