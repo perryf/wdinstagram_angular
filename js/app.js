@@ -49,6 +49,12 @@
       controller: 'InstagramIndexController',
       controllerAs: 'vm'
     })
+    .state('instagramNew', {
+      url: '/instagram/new',
+      templateUrl: 'js/ng-views/new.html',
+      controller: 'InstagramNewController',
+      controllerAs: 'vm'
+    })
     .state('instagramEdit', {
       url: '/instagram/:id/edit',
       templateUrl: 'js/ng-views/edit.html',
@@ -81,7 +87,7 @@
   }
 
   function InstagramEditControllerFunction (Instagram, $state) {
-    this.gram = Grumble.get({id: $state.params.id})
+    this.gram = Instagram.get({id: $state.params.id})
     this.update = function () {
       this.gram.$update({id: $state.params.id}, (gram) => {
         $state.go('instagramShow', {id: gram.id})
